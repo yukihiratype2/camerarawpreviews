@@ -45,7 +45,7 @@ class RawPreview implements IProvider {
         
         private function getResizedPreview($tmpPath, $maxX, $maxY) {
             $im = new \Imagick();
-            $im->readImageBlob(shell_exec("exiftool -b -PreviewImage " . escapeshellarg($tmpPath)));
+            $im->readImageBlob(shell_exec("exiftool -b -JpgFromRaw " . escapeshellarg($tmpPath)));
             if (!$im->valid()) {
                 return false;
             }
